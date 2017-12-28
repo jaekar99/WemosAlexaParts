@@ -2,8 +2,8 @@
 #include <ESP8266WiFi.h>
 #include "fauxmoESP.h"
  
-#define WIFI_SSID "Fuck Donald Trump"
-#define WIFI_PASS "12345678$^"
+#define WIFI_SSID "ATT6s3ENT4"
+#define WIFI_PASS "69z5f2s4+e4p"
 #define SERIAL_BAUDRATE                 115200
  
 fauxmoESP fauxmo;
@@ -37,8 +37,11 @@ void callback(uint8_t device_id, const char * device_name, bool state) {
   Serial.print(" state: ");
   if (state) {
     Serial.println("ON");
+    digitalWrite(D2,HIGH);
+    
   } else {
     Serial.println("OFF");
+    digitalWrite(D2,LOW);
   }
 }
  
@@ -47,6 +50,8 @@ void setup() {
     Serial.begin(SERIAL_BAUDRATE);
     Serial.println("FauxMo demo sketch");
     Serial.println("After connection, ask Alexa/Echo to 'turn <devicename> on' or 'off'");
+
+
     pinMode(D2,OUTPUT);
  
     // Wifi
@@ -61,4 +66,4 @@ void setup() {
 void loop() {
   fauxmo.handle();
 }
-
+}
